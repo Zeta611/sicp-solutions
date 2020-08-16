@@ -34,7 +34,8 @@
     "\n"
     (html
       (head (title t))
-      (body b))))
+      (body b))
+    "\n"))
 
 ; test code
 (define test-file
