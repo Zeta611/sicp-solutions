@@ -4,32 +4,29 @@
 <title>
 Sample HTML
 </title>
-
 </head>
-
 <body>
 <p>
-<tt>
-(load&nbsp;"huffman-deps.scm")<br>
-<br>
-(define&nbsp;sample-tree<br>
-&nbsp;&nbsp;(make-code-tree&nbsp;(make-leaf&nbsp;'A&nbsp;4)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-code-tree<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-leaf&nbsp;'B&nbsp;2)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-code-tree&nbsp;(make-leaf&nbsp;'D&nbsp;1)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-leaf&nbsp;'C&nbsp;1)))))<br>
-<br>
-(define&nbsp;sample-message&nbsp;'(0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;))<br>
-<br>
-;&nbsp;test&nbsp;code<br>
-(display<br>
-&nbsp;&nbsp;(decode&nbsp;sample-message&nbsp;sample-tree))<br>
-(newline)<br>
+<code>
+<pre>
+(load "huffman-deps.scm")
 
-</tt>
+(define sample-tree
+  (make-code-tree (make-leaf 'A 4)
+                  (make-code-tree
+                    (make-leaf 'B 2)
+                    (make-code-tree (make-leaf 'D 1)
+                                    (make-leaf 'C 1)))))
 
+(define sample-message '(0 1 1 0 0 1 0 1 0 1 1 1 0 ))
+
+; test code
+(display
+  (decode sample-message sample-tree))
+(newline)
+
+</pre>
+</code>
 </p>
-
 </body>
-
 </html>

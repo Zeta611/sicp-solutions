@@ -1,11 +1,13 @@
 ;;;; Utils
-; Put `delim` after each element in list `l`.
-(define (put-after delim l)
-  (fold-right
-    (lambda (hd tl)
-      (cons hd (cons delim tl)))
-    '()
-    l))
+; Put `delim` between each element in list `l`.
+(define (put-between delim l)
+  (cdr
+    (fold-right
+      (lambda (hd tl)
+        (cons delim (cons hd tl)))
+      '()
+      l)))
+
 
 (define (string-replace contents from to)
   (define (from->to contents)
@@ -21,6 +23,7 @@
               (string-head contents 1)
               (from->to (string-tail contents 1)))))))
 
+
 ;;;; HTML Stuffs
 (define html-decl "<!DOCTYPE html>")
 
@@ -30,13 +33,11 @@
   (string-append "</" (symbol->string tag) ">"))
 
 (define (env tag . contents)
-  (apply
-    string-append
-    (put-after
-      "\n"
-      (cons (start tag)
-            (append contents
-                    (list (end tag)))))))
+  (string-append (start tag)
+                 "\n"
+                 (apply string-append contents)
+                 "\n"
+                 (end tag))
 
 ; HTML tags
 (define (html head body) (env 'html head body))
@@ -45,7 +46,8 @@
 (define (body x) (env 'body x))
 (define (p x) (env 'p x))
 (define (i x) (env 'i x))
-(define (tt x) (env 'tt x))
+(define (code x) (env 'code x))
+(define (pre x) (env 'pre x))
 (define br (start 'br))
 
 (define (html-document t b)
@@ -55,12 +57,6 @@
     (html
       (head (title t))
       (body b))))
-
-(define (newline-><br> s)
-  (string-replace s "\n" "<br>\n"))
-
-(define (space->&nbsp s)
-  (string-replace s " " "&nbsp;"))
 
 ;;;;; File I/O
 ; The list of all files in `directory`.
@@ -100,6 +96,6 @@
 (define test-html
   (html-document
     "Sample HTML"
-    (p (tt (space->&nbsp (newline-><br> test-file))))))
+    (p (code (pre test-file)))))
 
 (write-file test-html "test-html.html")
