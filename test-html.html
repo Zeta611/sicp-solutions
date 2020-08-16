@@ -10,20 +10,20 @@ Sample HTML
 <body>
 <p>
 <tt>
-(load "huffman-deps.scm")<br>
+(load&nbsp;"huffman-deps.scm")<br>
 <br>
-(define sample-tree<br>
-  (make-code-tree (make-leaf 'A 4)<br>
-                  (make-code-tree<br>
-                    (make-leaf 'B 2)<br>
-                    (make-code-tree (make-leaf 'D 1)<br>
-                                    (make-leaf 'C 1)))))<br>
+(define&nbsp;sample-tree<br>
+&nbsp;&nbsp;(make-code-tree&nbsp;(make-leaf&nbsp;'A&nbsp;4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-code-tree<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-leaf&nbsp;'B&nbsp;2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-code-tree&nbsp;(make-leaf&nbsp;'D&nbsp;1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(make-leaf&nbsp;'C&nbsp;1)))))<br>
 <br>
-(define sample-message '(0 1 1 0 0 1 0 1 0 1 1 1 0 ))<br>
+(define&nbsp;sample-message&nbsp;'(0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;))<br>
 <br>
-; test code<br>
+;&nbsp;test&nbsp;code<br>
 (display<br>
-  (decode sample-message sample-tree))<br>
+&nbsp;&nbsp;(decode&nbsp;sample-message&nbsp;sample-tree))<br>
 (newline)<br>
 
 </tt>

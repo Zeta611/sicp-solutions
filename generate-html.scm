@@ -59,6 +59,9 @@
 (define (newline-><br> s)
   (string-replace s "\n" "<br>\n"))
 
+(define (space->&nbsp s)
+  (string-replace s " " "&nbsp;"))
+
 ;;;;; File I/O
 ; The list of all files in `directory`.
 (define (files-in directory)
@@ -97,6 +100,6 @@
 (define test-html
   (html-document
     "Sample HTML"
-    (p (tt (newline-><br> test-file)))))
+    (p (tt (space->&nbsp (newline-><br> test-file))))))
 
 (write-file test-html "test-html.html")
