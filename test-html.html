@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Sample HTML
+</title>
+
+</head>
+
+<body>
+<p>
+<tt>
+(load "huffman-deps.scm")<br>
+<br>
+(define sample-tree<br>
+  (make-code-tree (make-leaf 'A 4)<br>
+                  (make-code-tree<br>
+                    (make-leaf 'B 2)<br>
+                    (make-code-tree (make-leaf 'D 1)<br>
+                                    (make-leaf 'C 1)))))<br>
+<br>
+(define sample-message '(0 1 1 0 0 1 0 1 0 1 1 1 0 ))<br>
+<br>
+; test code<br>
+(display<br>
+  (decode sample-message sample-tree))<br>
+(newline)<br>
+
+</tt>
+
+</p>
+
+</body>
+
+</html>
